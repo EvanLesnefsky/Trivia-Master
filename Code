@@ -1,0 +1,1151 @@
+var score = 0;
+var lives = 3;
+var timeLeft = 120;
+onEvent("riddles", "click", function( ) {
+  timer();
+});
+onEvent("science", "click", function( ) {
+  timer();
+});
+onEvent("history", "click", function( ) {
+  timer();
+});
+onEvent("math", "click", function( ) {
+  timer();
+});
+onEvent("popculture", "click", function( ) {
+  timer();
+});
+function timer() {
+  timedLoop(1000, function() {
+    timeLeft = timeLeft-1;
+    setText("time", "Time Left: " + timeLeft + " sec");
+    setText("timeq1", "Time Left: " + timeLeft + " sec");
+    setText("timeq2", "Time Left: " + timeLeft + " sec");
+    setText("timeq3", "Time Left: " + timeLeft + " sec");
+    setText("timeq4", "Time Left: " + timeLeft + " sec");
+    setText("timeq5", "Time Left: " + timeLeft + " sec");
+    setText("timeq6", ("Time Left: " + timeLeft) + " sec");
+    setText("timeq7", "Time Left: " + timeLeft + " sec");
+    setText("timeq8", "Time Left: " + timeLeft + " sec");
+    setText("timeq9", "Time Left: " + timeLeft + " sec");
+    setText("timeq10", "Time Left: " + timeLeft + " sec");
+    setText("times1", "Time Left: " + timeLeft + " sec");
+    setText("times2", "Time Left: " + timeLeft + " sec");
+    setText("times3", "Time Left: " + timeLeft + " sec");
+    setText("times4", "Time Left: " + timeLeft + " sec");
+    setText("times5", "Time Left: " + timeLeft + " sec");
+    setText("times6", "Time Left: " + timeLeft + " sec");
+    setText("times7", "Time Left: " + timeLeft + " sec");
+    setText("times8", "Time Left: " + timeLeft + " sec");
+    setText("times9", "Time Left: " + timeLeft + " sec");
+    setText("times10", "Time Left: " + timeLeft + " sec");
+    setText("timeh1", "Time Left: " + timeLeft + " sec");
+    setText("timeh2", "Time Left: " + timeLeft + " sec");
+    setText("timeh3", "Time Left: " + timeLeft + " sec");
+    setText("timeh4", "Time Left: " + timeLeft + " sec");
+    setText("timeh5", "Time Left: " + timeLeft + " sec");
+    setText("timeh6", "Time Left: " + timeLeft + " sec");
+    setText("timeh7", "Time Left: " + timeLeft + " sec");
+    setText("timeh8", "Time Left: " + timeLeft + " sec");
+    setText("timeh9", "Time Left: " + timeLeft + " sec");
+    setText("timeh10", "Time Left: " + timeLeft + " sec");
+    setText("timem1", ("Time Left: " + timeLeft) + " sec");
+    setText("timem2", ("Time Left: " + timeLeft) + " sec");
+    setText("timem3", ("Time Left: " + timeLeft) + " sec");
+    setText("timem4", ("Time Left: " + timeLeft) + " sec");
+    setText("timem5", ("Time Left: " + timeLeft) + " sec");
+    setText("timem6", ("Time Left: " + timeLeft) + " sec");
+    setText("timem7", ("Time Left: " + timeLeft) + " sec");
+    setText("timem8", ("Time Left: " + timeLeft) + " sec");
+    setText("timem9", ("Time Left: " + timeLeft) + " sec");
+    setText("timem10", ("Time Left: " + timeLeft) + " sec");
+    setText("timep1", ("Time Left: " + timeLeft) + " sec");
+    setText("timep2", ("Time Left: " + timeLeft) + " sec");
+    setText("timep3", ("Time Left: " + timeLeft) + " sec");
+    setText("timep4", ("Time Left: " + timeLeft) + " sec");
+    setText("timep5", ("Time Left: " + timeLeft) + " sec");
+    setText("timep6", ("Time Left: " + timeLeft) + " sec");
+    setText("timep7", ("Time Left: " + timeLeft) + " sec");
+    setText("timep8", ("Time Left: " + timeLeft) + " sec");
+    setText("timep9", ("Time Left: " + timeLeft) + " sec");
+    setText("timep10", ("Time Left: " + timeLeft) + " sec");
+    if (timeLeft == 0) {
+      stopSound("sound://category_background/synthesize.mp3");
+      stopTimedLoop();
+      setScreen("GameOver");
+      playSound("sound://category_alerts/cartoon_negative_bling.mp3", false);
+      setText("text_area9", "You ran out of time! Click to play again!");
+    }
+  });
+}
+onEvent("play", "click", function(){
+setScreen("Info");
+playSound("sound://category_app/app_interface_click_2.mp3", false);
+});
+onEvent("Next", "click", function( ) {
+  setScreen("Choices");
+  playSound("sound://category_app/app_interface_click_2.mp3", false);
+});
+onEvent("back", "click", function( ) {
+  setScreen("Info");
+  playSound("sound://category_app/app_interface_click_2.mp3", false);
+});
+onEvent("back2", "click", function( ) {
+  setScreen("Welcome");
+  playSound("sound://category_app/app_interface_click_2.mp3", false);
+});
+onEvent("riddles", "click", function( ) {
+  playSound("sound://category_background/synthesize.mp3", false);
+  setScreen("question1");
+  playSound("sound://category_app/app_interface_click_2.mp3", false);
+});
+onEvent("science", "click", function( ) {
+  playSound("sound://category_background/synthesize.mp3", false);
+  setScreen("science1");
+  playSound("sound://category_app/app_interface_click_2.mp3", false);
+});
+onEvent("popculture", "click", function( ) {
+  playSound("sound://category_background/synthesize.mp3", false);
+  setScreen("pop1");
+  playSound("sound://category_app/app_interface_click_2.mp3", false);
+});
+onEvent("history", "click", function( ) {
+  playSound("sound://category_background/synthesize.mp3", false);
+  setScreen("history1");
+  playSound("sound://category_app/app_interface_click_2.mp3", false);
+});
+onEvent("math", "click", function( ) {
+  playSound("sound://category_background/synthesize.mp3", false);
+  setScreen("math1");
+  playSound("sound://category_app/app_interface_click_2.mp3", false);
+});
+onEvent("button11", "click", function(){
+setScreen("Welcome");
+playSound("sound://category_app/app_interface_click_2.mp3", false);
+reset();
+});
+onEvent("backBtn", "click", function(){
+setScreen("Welcome");
+playSound("sound://category_app/app_interface_click_2.mp3", false);
+});
+onEvent("button?", "click", function(){
+setScreen("About");
+playSound("sound://category_app/app_interface_click_2.mp3", false);
+});
+onEvent("Replay", "click", function(){
+setScreen("Welcome");
+playSound("sound://category_app/app_interface_click_2.mp3", false);
+reset();
+});
+function checkLives() {
+  playSound("sound://category_pop/puzzle_game_affirmation_positive_ui_button_1.mp3", false);
+  playSound("sound://category_digital/failure.mp3", false);
+  lives = lives -1;
+  setText("livesq2", "Lives: " + lives);
+  setText("livesq3", "Lives: " + lives);
+  setText("livesq4", "Lives: " + lives);
+  setText("livesq5", "Lives: " + lives);
+  setText("livesq6", "Lives: " + lives);
+  setText("livesq7", "Lives: " + lives);
+  setText("livesq8", "Lives: " + lives);
+  setText("livesq9", "Lives: " + lives);
+  setText("livesq10", "Lives: " + lives);
+  setText("livess1", "Lives: " + lives);
+  setText("livess2", "Lives: " + lives);
+  setText("livess3", "Lives: " + lives);
+  setText("livess4", "Lives: " + lives);
+  setText("livess5", "Lives: " + lives);
+  setText("livess6", "Lives: " + lives);
+  setText("livess7", "Lives: " + lives);
+  setText("livess8", "Lives: " + lives);
+  setText("livess9", "Lives: " + lives);
+  setText("livess10", "Lives: " + lives);
+  setText("livesh1", "Lives: " + lives);
+  setText("livesh2", "Lives: " + lives);
+  setText("livesh3", "Lives: " + lives);
+  setText("livesh4", "Lives: " + lives);
+  setText("livesh5", "Lives: " + lives);
+  setText("livesh6", "Lives: " + lives);
+  setText("livesh7", "Lives: " + lives);
+  setText("livesh8", "Lives: " + lives);
+  setText("livesh9", "Lives: " + lives);
+  setText("livesh10", "Lives: " + lives);
+  setText("livesm1", "Lives: " + lives);
+  setText("livesm2", "Lives: " + lives);
+  setText("livesm3", "Lives: " + lives);
+  setText("livesm4", "Lives: " + lives);
+  setText("livesm5", "Lives: " + lives);
+  setText("livesm6", "Lives: " + lives);
+  setText("livesm7", "Lives: " + lives);
+  setText("livesm8", "Lives: " + lives);
+  setText("livesm9", "Lives: " + lives);
+  setText("livesm10", "Lives: " + lives);
+  setText("livesp1", "Lives: " + lives);
+  setText("livesp2", "Lives: " + lives);
+  setText("livesp3", "Lives: " + lives);
+  setText("livesp4", "Lives: " + lives);
+  setText("livesp5", "Lives: " + lives);
+  setText("livesp6", "Lives: " + lives);
+  setText("livesp7", "Lives: " + lives);
+  setText("livesp8", "Lives: " + lives);
+  setText("livesp9", "Lives: " + lives);
+  setText("livesp10", "Lives: " + lives);
+  if (lives == 0) {
+    stopSound("sound://category_background/synthesize.mp3");
+    playSound("sound://category_alerts/cartoon_negative_bling.mp3", false);
+    setScreen("GameOver");
+    setText("text_area9", "You ran out of lives! Click to play again!");
+    stopTimedLoop();
+  }
+}
+function reset() {
+  score = 0;
+  lives = 3;
+  timeLeft = 120;
+}
+function totalScore() {
+  setText("finalScore", "Total Score: " + (score*lives*timeLeft));
+}
+function checkScore() {
+  playSound("sound://category_achievements/lighthearted_bonus_objective_6.mp3", false);
+  playSound("sound://category_pop/deep_bubble_notification.mp3", false);
+  score = score +1;
+  if (score == 10) {
+    stopSound("sound://category_background/synthesize.mp3");
+    setScreen("Congratulations");
+    playSound("sound://category_achievements/vibrant_virtcal_achievment.mp3", false);
+  }
+}
+
+function correctRiddles() {
+  onEvent("1answer1", "click", function(){
+  setScreen("question2");
+  checkScore();
+  });
+  onEvent("2answer4", "click", function(){
+  setScreen("question3");
+  checkScore();
+  });
+  onEvent("3answer2", "click", function(){
+  setScreen("question4");
+  checkScore();
+  });
+  onEvent("4answer2", "click", function(){
+  setScreen("question5");
+  checkScore();
+  });
+  onEvent("5answer3", "click", function(){
+  setScreen("question6");
+  checkScore();
+  });
+  onEvent("6answer4", "click", function(){
+  setScreen("question7");
+  checkScore();
+  });
+  onEvent("7answer1", "click", function(){
+  setScreen("question8");
+  checkScore();
+  });
+  onEvent("8answer1", "click", function(){
+  setScreen("question9");
+  checkScore();
+  });
+  onEvent("9answer2", "click", function(){
+  setScreen("question10");
+  checkScore();
+  });
+  onEvent("10answer3", "click", function(){
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  playSound("sound://category_achievements/vibrant_virtcal_achievment.mp3", false);
+  stopTimedLoop();
+  checkScore();
+  totalScore();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+  });
+}
+correctRiddles();
+
+wrongRiddles();
+function wrongRiddles() {
+  onEvent("1answer2", "click", function(){
+  setScreen("question2");
+  checkLives();
+  });
+  onEvent("1answer3", "click", function(){
+  setScreen("question2");
+  checkLives();
+  });
+  onEvent("1answer4", "click", function(){
+  setScreen("question2");
+  checkLives();
+  });
+  onEvent("2answer1", "click", function(){
+  setScreen("question3");
+  checkLives();
+  });
+  onEvent("2answer2", "click", function(){
+  setScreen("question3");
+  checkLives();
+  });
+  onEvent("2answer3", "click", function(){
+  setScreen("question3");
+  checkLives();
+  });
+  onEvent("3answer1", "click", function(){
+  setScreen("question4");
+  checkLives();
+  });
+  onEvent("3answer3", "click", function(){
+  setScreen("question4");
+  checkLives();
+  });
+  onEvent("3answer4", "click", function(){
+  setScreen("question4");
+  checkLives();
+  });
+  onEvent("4answer1", "click", function(){
+  setScreen("question5");
+  checkLives();
+  });
+  onEvent("4answer3", "click", function(){
+  setScreen("question5");
+  checkLives();
+  });
+  onEvent("4answer4", "click", function(){
+  setScreen("question5");
+  checkLives();
+  });
+  onEvent("5answer1", "click", function(){
+  setScreen("question6");
+  checkLives();
+  });
+  onEvent("5answer2", "click", function(){
+  setScreen("question6");
+  checkLives();
+  });
+  onEvent("5answer4", "click", function(){
+  setScreen("question6");
+  checkLives();
+  });
+  onEvent("6answer1", "click", function(){
+  setScreen("question7");
+  checkLives();
+  });
+  onEvent("6answer2", "click", function(){
+  setScreen("question7");
+  checkLives();
+  });
+  onEvent("6answer3", "click", function(){
+  setScreen("question7");
+  checkLives();
+  });
+  onEvent("7answer2", "click", function(){
+  setScreen("question8");
+  checkLives();
+  });
+  onEvent("7answer3", "click", function(){
+  setScreen("question8");
+  checkLives();
+  });
+  onEvent("7answer4", "click", function(){
+  setScreen("question8");
+  checkLives();
+  });
+  onEvent("8answer2", "click", function(){
+  setScreen("question9");
+  checkLives();
+  });
+  onEvent("8answer3", "click", function(){
+  setScreen("question9");
+  checkLives();
+  });
+  onEvent("8answer4", "click", function(){
+  setScreen("question9");
+  checkLives();
+  });
+  onEvent("9answer1", "click", function(){
+  setScreen("question10");
+  checkLives();
+  });
+  onEvent("9answer3", "click", function(){
+  setScreen("question10");
+  checkLives();
+  });
+  onEvent("9answer4", "click", function(){
+  setScreen("question10");
+  checkLives();
+  });
+  onEvent("10answer1", "click", function(){
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+  });
+  onEvent("10answer2", "click", function(){
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+  });
+  onEvent("10answer4", "click", function(){
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+  });
+}
+
+
+
+
+onEvent("science14", "click", function( ) {
+  setScreen("science2");
+  checkScore();
+});
+onEvent("science22", "click", function( ) {
+  setScreen("science3");
+  checkScore();
+});
+onEvent("science31", "click", function( ) {
+  setScreen("science4");
+  checkScore();
+});
+onEvent("science43", "click", function( ) {
+  setScreen("science5");
+  checkScore();
+});
+onEvent("science52", "click", function( ) {
+  setScreen("science6");
+  checkScore();
+});
+onEvent("science63", "click", function( ) {
+  setScreen("science7");
+  checkScore();
+});
+onEvent("science72", "click", function( ) {
+  setScreen("science8");
+  checkScore();
+});
+onEvent("science83", "click", function( ) {
+  setScreen("science9");
+  checkScore();
+});
+onEvent("science94", "click", function( ) {
+  setScreen("science10");
+  checkScore();
+});
+onEvent("science101", "click", function(){
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  playSound("sound://category_achievements/vibrant_virtcal_achievment.mp3", false);
+  stopTimedLoop();
+  checkScore();
+  totalScore();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+
+onEvent("science11", "click", function() {
+  setScreen("science2");
+  checkLives();
+});
+onEvent("science12", "click", function() {
+  setScreen("science2");
+  checkLives();
+});
+onEvent("science13", "click", function() {
+  setScreen("science2");
+  checkLives();
+});
+onEvent("science21", "click", function() {
+  setScreen("science3");
+  checkLives();
+});
+onEvent("science23", "click", function() {
+  setScreen("science3");
+  checkLives();
+});
+onEvent("science24", "click", function() {
+  setScreen("science3");
+  checkLives();
+});
+onEvent("science32", "click", function() {
+  setScreen("science4");
+  checkLives();
+});
+onEvent("science33", "click", function() {
+  setScreen("science4");
+  checkLives();
+});
+onEvent("science34", "click", function() {
+  setScreen("science4");
+  checkLives();
+});
+onEvent("science41", "click", function() {
+  setScreen("science5");
+  checkLives();
+});
+onEvent("science42", "click", function() {
+  setScreen("science5");
+  checkLives();
+});
+onEvent("science44", "click", function() {
+  setScreen("science5");
+  checkLives();
+});
+onEvent("science51", "click", function() {
+  setScreen("science6");
+  checkLives();
+});
+onEvent("science53", "click", function() {
+  setScreen("science6");
+  checkLives();
+});
+onEvent("science54", "click", function() {
+  setScreen("science6");
+  checkLives();
+});
+onEvent("science61", "click", function() {
+  setScreen("science7");
+  checkLives();
+});
+onEvent("science62", "click", function() {
+  setScreen("science7");
+  checkLives();
+});
+onEvent("science64", "click", function() {
+  setScreen("science7");
+  checkLives();
+});
+onEvent("science71", "click", function() {
+  setScreen("science8");
+  checkLives();
+});
+onEvent("science73", "click", function() {
+  setScreen("science8");
+  checkLives();
+});
+onEvent("science74", "click", function() {
+  setScreen("science8");
+  checkLives();
+});
+onEvent("science81", "click", function() {
+  setScreen("science9");
+  checkLives();
+});
+onEvent("science82", "click", function() {
+  setScreen("science9");
+  checkLives();
+});
+onEvent("science84", "click", function() {
+  setScreen("science9");
+  checkLives();
+});
+onEvent("science91", "click", function() {
+  setScreen("science10");
+  checkLives();
+});
+onEvent("science92", "click", function() {
+  setScreen("science10");
+  checkLives();
+});
+onEvent("science93", "click", function() {
+  setScreen("science10");
+  checkLives();
+});
+onEvent("science102", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+onEvent("science103", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+onEvent("science104", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+
+
+
+onEvent("history12", "click", function() {
+  setScreen("history2");
+  checkScore();
+});
+onEvent("history21", "click", function() {
+  setScreen("history3");
+  checkScore();
+});
+onEvent("history34", "click", function() {
+  setScreen("history4");
+  checkScore();
+});
+onEvent("history44", "click", function() {
+  setScreen("history5");
+  checkScore();
+});
+onEvent("history51", "click", function() {
+  setScreen("history6");
+  checkScore();
+});
+onEvent("history63", "click", function() {
+  setScreen("history7");
+  checkScore();
+});
+onEvent("history74", "click", function() {
+  setScreen("history8");
+  checkScore();
+});
+onEvent("history84", "click", function() {
+  setScreen("history9");
+  checkScore();
+});
+onEvent("history92", "click", function() {
+  setScreen("history10");
+  checkScore();
+});
+onEvent("history101", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  playSound("sound://category_achievements/vibrant_virtcal_achievment.mp3", false);
+  stopTimedLoop();
+  checkScore();
+  totalScore();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+
+onEvent("history11", "click", function() {
+  setScreen("history2");
+  checkLives();
+});
+onEvent("history13", "click", function() {
+  setScreen("history2");
+  checkLives();
+});
+onEvent("history14", "click", function() {
+  setScreen("history2");
+  checkLives();
+});
+onEvent("history22", "click", function() {
+  setScreen("history3");
+  checkLives();
+});
+onEvent("history23", "click", function() {
+  setScreen("history3");
+  checkLives();
+});
+onEvent("history24", "click", function() {
+  setScreen("history3");
+  checkLives();
+});
+onEvent("history31", "click", function() {
+  setScreen("history4");
+  checkLives();
+});
+onEvent("history32", "click", function() {
+  setScreen("history4");
+  checkLives();
+});
+onEvent("history33", "click", function() {
+  setScreen("history4");
+  checkLives();
+});
+onEvent("history41", "click", function() {
+  setScreen("history5");
+  checkLives();
+});
+onEvent("history42", "click", function() {
+  setScreen("history5");
+  checkLives();
+});
+onEvent("history43", "click", function() {
+  setScreen("history5");
+  checkLives();
+});
+onEvent("history52", "click", function() {
+  setScreen("history6");
+  checkLives();
+});
+onEvent("history53", "click", function() {
+  setScreen("history6");
+  checkLives();
+});
+onEvent("history54", "click", function() {
+  setScreen("history6");
+  checkLives();
+});
+onEvent("history61", "click", function() {
+  setScreen("history7");
+  checkLives();
+});
+onEvent("history62", "click", function() {
+  setScreen("history7");
+  checkLives();
+});
+onEvent("history64", "click", function() {
+  setScreen("history7");
+  checkLives();
+});
+onEvent("history71", "click", function() {
+  setScreen("history8");
+  checkLives();
+});
+onEvent("history72", "click", function() {
+  setScreen("history8");
+  checkLives();
+});
+onEvent("history73", "click", function() {
+  setScreen("history8");
+  checkLives();
+});
+onEvent("history81", "click", function() {
+  setScreen("history9");
+  checkLives();
+});
+onEvent("history82", "click", function() {
+  setScreen("history9");
+  checkLives();
+});
+onEvent("history83", "click", function() {
+  setScreen("history9");
+  checkLives();
+});
+onEvent("history91", "click", function() {
+  setScreen("history10");
+  checkLives();
+});
+onEvent("history93", "click", function() {
+  setScreen("history10");
+  checkLives();
+});
+onEvent("history94", "click", function() {
+  setScreen("history10");
+  checkLives();
+});
+onEvent("history102", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+onEvent("history103", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+onEvent("history104", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+
+
+
+
+onEvent("math13", "click", function() {
+  setScreen("math2");
+  checkScore();
+});
+onEvent("math22", "click", function() {
+  setScreen("math3");
+  checkScore();
+});
+onEvent("math31", "click", function() {
+  setScreen("math4");
+  checkScore();
+});
+onEvent("math43", "click", function() {
+  setScreen("math5");
+  checkScore();
+});
+onEvent("math51", "click", function() {
+  setScreen("math6");
+  checkScore();
+});
+onEvent("math63", "click", function() {
+  setScreen("math7");
+  checkScore();
+});
+onEvent("math74", "click", function() {
+  setScreen("math8");
+  checkScore();
+});
+onEvent("math82", "click", function() {
+  setScreen("math9");
+  checkScore();
+});
+onEvent("math94", "click", function() {
+  setScreen("math10");
+  checkScore();
+});
+onEvent("math102", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  playSound("sound://category_achievements/vibrant_virtcal_achievment.mp3", false);
+  stopTimedLoop();
+  checkScore();
+  totalScore();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+
+onEvent("math11", "click", function() {
+  setScreen("math2");
+  checkLives();
+});
+onEvent("math12", "click", function() {
+  setScreen("math2");
+  checkLives();
+});
+onEvent("math14", "click", function() {
+  setScreen("math2");
+  checkLives();
+});
+onEvent("math21", "click", function() {
+  setScreen("math3");
+  checkLives();
+});
+onEvent("math23", "click", function() {
+  setScreen("math3");
+  checkLives();
+});
+onEvent("math24", "click", function() {
+  setScreen("math3");
+  checkLives();
+});
+onEvent("math32", "click", function() {
+  setScreen("math4");
+  checkLives();
+});
+onEvent("math33", "click", function() {
+  setScreen("math4");
+  checkLives();
+});
+onEvent("math34", "click", function() {
+  setScreen("math4");
+  checkLives();
+});
+onEvent("math41", "click", function() {
+  setScreen("math5");
+  checkLives();
+});
+onEvent("math42", "click", function() {
+  setScreen("math5");
+  checkLives();
+});
+onEvent("math44", "click", function() {
+  setScreen("math5");
+  checkLives();
+});
+onEvent("math52", "click", function() {
+  setScreen("math6");
+  checkLives();
+});
+onEvent("math53", "click", function() {
+  setScreen("math6");
+  checkLives();
+});
+onEvent("math54", "click", function() {
+  setScreen("math6");
+  checkLives();
+});
+onEvent("math61", "click", function() {
+  setScreen("math7");
+  checkLives();
+});
+onEvent("math62", "click", function() {
+  setScreen("math7");
+  checkLives();
+});
+onEvent("math64", "click", function() {
+  setScreen("math7");
+  checkLives();
+});
+onEvent("math71", "click", function() {
+  setScreen("math8");
+  checkLives();
+});
+onEvent("math72", "click", function() {
+  setScreen("math8");
+  checkLives();
+});
+onEvent("math73", "click", function() {
+  setScreen("math8");
+  checkLives();
+});
+onEvent("math81", "click", function() {
+  setScreen("math9");
+  checkLives();
+});
+onEvent("math83", "click", function() {
+  setScreen("math9");
+  checkLives();
+});
+onEvent("math84", "click", function() {
+  setScreen("math9");
+  checkLives();
+});
+onEvent("math91", "click", function() {
+  setScreen("math10");
+  checkLives();
+});
+onEvent("math92", "click", function() {
+  setScreen("math10");
+  checkLives();
+});
+onEvent("math93", "click", function() {
+  setScreen("math10");
+  checkLives();
+});
+onEvent("math101", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+onEvent("math103", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+onEvent("math104", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+
+
+
+
+onEvent("pop14", "click", function() {
+  setScreen("pop2");
+  checkScore();
+});
+onEvent("pop24", "click", function() {
+  setScreen("pop3");
+  checkScore();
+});
+onEvent("pop33", "click", function() {
+  setScreen("pop4");
+  checkScore();
+});
+onEvent("pop42", "click", function() {
+  setScreen("pop5");
+  checkScore();
+});
+onEvent("pop51", "click", function() {
+  setScreen("pop6");
+  checkScore();
+});
+onEvent("pop62", "click", function() {
+  setScreen("pop7");
+  checkScore();
+});
+onEvent("pop74", "click", function() {
+  setScreen("pop8");
+  checkScore();
+});
+onEvent("pop82", "click", function() {
+  setScreen("pop9");
+  checkScore();
+});
+onEvent("pop93", "click", function() {
+  setScreen("pop10");
+  checkScore();
+});
+onEvent("pop103", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  playSound("sound://category_achievements/vibrant_virtcal_achievment.mp3", false);
+  stopTimedLoop();
+  checkScore();
+  totalScore();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+
+onEvent("pop11", "click", function() {
+  setScreen("pop2");
+  checkLives();
+});
+onEvent("pop12", "click", function() {
+  setScreen("pop2");
+  checkLives();
+});
+onEvent("pop13", "click", function() {
+  setScreen("pop2");
+  checkLives();
+});
+onEvent("pop21", "click", function() {
+  setScreen("pop3");
+  checkLives();
+});
+onEvent("pop22", "click", function() {
+  setScreen("pop3");
+  checkLives();
+});
+onEvent("pop23", "click", function() {
+  setScreen("pop3");
+  checkLives();
+});
+onEvent("pop31", "click", function() {
+  setScreen("pop4");
+  checkLives();
+});
+onEvent("pop32", "click", function() {
+  setScreen("pop4");
+  checkLives();
+});
+onEvent("pop34", "click", function() {
+  setScreen("pop4");
+  checkLives();
+});
+onEvent("pop41", "click", function() {
+  setScreen("pop5");
+  checkLives();
+});
+onEvent("pop43", "click", function() {
+  setScreen("pop5");
+  checkLives();
+});
+onEvent("pop44", "click", function() {
+  setScreen("pop5");
+  checkLives();
+});
+onEvent("pop52", "click", function() {
+  setScreen("pop6");
+  checkLives();
+});
+onEvent("pop53", "click", function() {
+  setScreen("pop6");
+  checkLives();
+});
+onEvent("pop54", "click", function() {
+  setScreen("pop6");
+  checkLives();
+});
+onEvent("pop61", "click", function() {
+  setScreen("pop7");
+  checkLives();
+});
+onEvent("pop63", "click", function() {
+  setScreen("pop7");
+  checkLives();
+});
+onEvent("pop64", "click", function() {
+  setScreen("pop7");
+  checkLives();
+});
+onEvent("pop71", "click", function() {
+  setScreen("pop8");
+  checkLives();
+});
+onEvent("pop72", "click", function() {
+  setScreen("pop8");
+  checkLives();
+});
+onEvent("pop73", "click", function() {
+  setScreen("pop8");
+  checkLives();
+});
+onEvent("pop81", "click", function() {
+  setScreen("pop9");
+  checkLives();
+});
+onEvent("pop83", "click", function() {
+  setScreen("pop9");
+  checkLives();
+});
+onEvent("pop84", "click", function() {
+  setScreen("pop9");
+  checkLives();
+});
+onEvent("pop91", "click", function() {
+  setScreen("pop10");
+  checkLives();
+});
+onEvent("pop92", "click", function() {
+  setScreen("pop10");
+  checkLives();
+});
+onEvent("pop94", "click", function() {
+  setScreen("pop10");
+  checkLives();
+});
+onEvent("pop101", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+onEvent("pop102", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
+onEvent("pop104", "click", function() {
+  stopSound("sound://category_background/synthesize.mp3");
+  setScreen("Congratulations");
+  totalScore();
+  checkLives();
+  stopTimedLoop();
+  setText("livesLeft", "Lives Left: " + lives);
+  setText("score1", "Questions Correct: " + score + "/10");
+});
